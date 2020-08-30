@@ -1,7 +1,5 @@
 *.pyc
-*.log
-.pypirc
+*egg-info/
+.coverage
 build/*
-xmler/*
 dist/*
-MANIFEST
