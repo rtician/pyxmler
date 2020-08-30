@@ -1,21 +1,21 @@
 # What am I
 
-xmler is a python package for converting python dictionaries into valid XML. Most XML conversion utilities out there don't seem to provide any namespace support, which was my main reason for creating this package. Inspiration was drawn from the current most popular dictionary to  XML conversion utility [dicttoxml](https://github.com/quandyfactory/dicttoxml).
+Py-xmler is a python package for converting python dictionaries into valid XML. Most XML conversion utilities out there don't seem to provide any namespace support, which was my main reason for creating this package. Inspiration was drawn from the current most popular dictionary to  XML conversion utility [dicttoxml](https://github.com/quandyfactory/dicttoxml).
 
 # Details
 
-xmler has a very specific api that it abides by and, for now, doesn't have very good error handling. Getting namespace support with python dictionaries is not easy so there may be some quirks.
+Py-xmler has a very specific api that it abides by and, for now, doesn't have very good error handling. Getting namespace support with python dictionaries is not easy so there may be some quirks.
 
 To be used with this package your dictionary must be formatted in the following way:
 
 ```python
-import dict2xml from xmler
+from pyxmler import dict2xml
 
 myDict = {
-	"RootTag": {						# The root tag. Will not necessarily be root. (see #customRoot)
-		"@ns": "soapenv",			# The namespace for the RootTag. The RootTag will appear as <soapenv:RootTag ...>
-		"@attrs": {						# @attrs takes a dictionary. each key-value pair will become an attribute
-			{ "xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/" }
+	"RootTag": {
+		"@ns": "soapenv",
+		"@attrs": {
+			"xmlns:soapenv": "http://schemas.xmlsoap.org/soap/envelope/"
 		},
 		"childTag": {
 			"@attrs": {
@@ -26,7 +26,7 @@ myDict = {
 	}
 }
 
-print(dict2xml(myDict, pretty=True, customRoot=None))
+print(dict2xml(myDict, pretty=True))
 ```
 
 Which will return the following XML:
@@ -159,45 +159,8 @@ myDict = {
 
 # Installation
 
-xmler is [published to PyPi](https://pypi.python.org/pypi/xmler), so installing it is as easy as:
+Pyxmler is [published to PyPi](https://pypi.org/project/pyxmler/), so installing it is as easy as:
 
 ```shell
-pip install xmler
+pip install pyxmler
 ```
-
-OR
-
-```shell
-easy_install xmler
-```
-
-You can also download the installer as a tar archive and install it using python with:
-
-```shell
-python setup.py install
-```
-
-# Author
-
-+ Author: Chris Watson
-+ Email: chris@marginzero.co
-+ Repository: http://github.com/iDev0urer/xmler
-
-# Version
-
-+ Version: 0.1.0
-+ Release date: 2016-08-09
-
-# Revision History
-
-## Version 0.1.0
-+ Release date: 2016-08-09
-+ Changes:
-	- Initial commit
-
-# Copywrite and License
-
-Copywrite 2016 by Christopher Watson
-
-Released under the GNU General Public Licence, Version 2:
-http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
