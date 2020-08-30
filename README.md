@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rtician/pyxmler.svg?branch=master)](https://travis-ci.org/rtician/pyxmler)
+
 # What am I
 
 Py-xmler is a python package for converting python dictionaries into valid XML. Most XML conversion utilities out there don't seem to provide any namespace support, which was my main reason for creating this package. Inspiration was drawn from the current most popular dictionary to  XML conversion utility [dicttoxml](https://github.com/quandyfactory/dicttoxml).

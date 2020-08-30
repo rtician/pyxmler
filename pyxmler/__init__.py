@@ -1,7 +1,7 @@
 from xml.dom import minidom
 from xml.etree.ElementTree import tostring
 
-from pyxmler.parser import parse
+from pyxmler.helpers import parse, sorter
 
 
 def dict2xml(d, encoding="utf-8", pretty=False, indent=4):
@@ -19,7 +19,8 @@ def dict2xml(d, encoding="utf-8", pretty=False, indent=4):
         string: A XML formatted string representing the dictionary.
     """
 
-    xml_string = tostring(parse(d), encoding=encoding)
+    sorted_dict = sorter(d)
+    xml_string = tostring(parse(sorted_dict), encoding=encoding)
 
     if pretty:
         xml_pretty_string = minidom.parseString(xml_string)
