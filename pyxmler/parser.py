@@ -1,4 +1,3 @@
-from collections import OrderedDict
 from decimal import Decimal
 from xml.etree.ElementTree import Element
 
@@ -45,14 +44,3 @@ def parse(dict_obj, parent={}):
         element.text = parent['value']
 
     return element
-
-
-def sorter(d):
-    ordered_dict = OrderedDict()
-    for key, value in d.items():
-        if isinstance(value, dict):
-            value = sorter(value)
-
-        ordered_dict[key] = value
-
-    return ordered_dict
